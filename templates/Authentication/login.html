@@ -1,0 +1,54 @@
+{% extends 'Auth_base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="row">
+
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+
+        <div class="card mt-5">
+            <div class="card-body">
+
+            <div  class="card-title">
+                <h3>Log in to your account</h3>
+            </div>
+        <form action="{% url 'login'%}" method="post">
+            <div class="form-group p-2">
+                <input 
+                type="text" 
+                name="username" 
+                placeholder="username"
+                id="usernameField" 
+                class="form-control form-control-sm "/>
+
+            </div>
+
+            <div class="form-group p-2">
+                <input 
+                type="password" 
+                name="password" 
+                placeholder="password"
+                id="passwordField" 
+                class="form-control form-control-sm "/>
+
+            </div>
+             <div class="text-center">
+                
+            <input type="submit" value="Sign In" class="btn  btn-primary submit-btn btn-rounded">
+             </div>
+        </form>
+         <p>Create your acount here   <a href="#">Sign up</a></p>
+        </div>
+        </div>
+
+    </div>
+    <div class="col-md-4"></div>
+
+</div>
+
+
+{% endblock %}
+
+
