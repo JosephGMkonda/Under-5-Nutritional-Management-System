@@ -1,0 +1,76 @@
+
+
+{% load static %}
+<html lang="en" data-layout-mode="detached" data-topbar-color="dark" data-menu-color="light" data-sidenav-user="true">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Under-5 {% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- Theme Config Js -->
+        <script src="{% static 'css/assets/hyper-config.js' %}"></script>
+
+        <!-- App css -->
+        <link href="{% static 'css/assets/app-modern.min.css' %}" rel="stylesheet" type="text/css" id="app-style" />
+
+        <!-- Icons css -->
+        <link href="{% static 'css/assets/icons.min.css' %}" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+        <!-- Begin page -->
+        <div class="wrapper">
+
+            
+           
+            
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+
+                {% block content %}
+
+                
+                {% endblock  %}
+
+
+                  
+                </div> <!-- content -->
+
+               
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+        </div>
+        
+        <!-- Vendor js -->
+        <script src="{% static 'js/assets/vendor.min.js' %}"></script>
+
+        <!-- Apex  Charts js -->
+    <script src="{% static 'assets/js/apexcharts.min.js' %}"></script>
+
+        <!-- Todo js -->
+        <script src="{% static 'assets/js/component.todo.js' %}"></script>
+
+        <!-- CRM Dashboard Demo App Js -->
+        <script src="{% static 'assets/js/demo.crm-dashboard.js' %}"></script>
+
+        <!-- App js -->
+        <script src="{% static 'assets/js/app.min.js' %}"></script>
+
+    </body>
+</html>
