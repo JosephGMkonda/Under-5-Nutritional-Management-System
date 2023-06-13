@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="container mt-4">
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="col">
+            <form>
+                <div class="form-group">
+                    <input 
+                    type="text" 
+                    name="Search" 
+                    placeholder="Search"
+                    id="SearchField" 
+                    class="form-control form-control-sm "/>
+    
+                </div>
+
+                
+        
+            </form>
+        </div>
+        </div>
+
+        <div class="col-md-4">
+
+            <a href="{% url 'add_child' %}" class="btn btn-primary btn-rounded">Add Child</a>
+
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="app-table">
+                    <table class="table table-stripped table-hover">
+                        <thead class="head">
+
+                            <tr>
+                                <th> Full Name</th>
+                                <th>Gender</th>
+                                <th> DOB</th>
+                                <th> Age(years)</th>
+                                <th> Status </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            {% for children in children_details %}
+
+                            <tr>
+                                <td>{{children.firstname}} {{children.lastname}}</td>
+                                <td>{{children.gender}}</td>
+                                <td>{{children.dateOfBirth}}</td>
+                                <td>{{children.get_age}} years</td>
+                                <td>{{children.status}}</td>
+                            </tr>
+
+                           {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+{% endblock content %}

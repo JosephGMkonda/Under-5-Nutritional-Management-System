@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+<div class="container mt-4">
+
+    <div class="col-md-10">
+        <nav class="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a>Children</a></li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <form action="#" method="post">
+                {% include 'partials/messages.html'%}
+
+                {% csrf_token %}
+            <div class="form-group p-2">
+              <label for="" >First Name:</label>
+              <input 
+              type="text" 
+              class=" form-control form-control-sm"
+               name="firstname"
+               value="{{values.firstname}}"
+               />
+            </div>
+      
+            <div class="form-group p-2">
+              <label for="" >Last Name:</label>
+              <input 
+              type="text" 
+              class=" form-control form-control-sm" 
+              name="lastname"
+              value="{{values.lastname}}"
+      
+              />
+            </div>
+      
+            <div class="form-group p-2">
+              <label for="" >Gender:</label>
+              <select class = "form-control" name="gender">
+      
+               
+                <option name = "male" vlaue="{{values.gender}}">Male</option>
+                <option name = "female" vlaue="{{values.gender}}">Female</option>
+       
+         
+               </select>
+            </div>
+      
+            <div class="form-group p-2">
+              <label for="" >Date of Birth:</label>
+              <input 
+              type="date" 
+              class="form-control form-control-sm" 
+              name="dateofbirth"
+              />
+            </div>
+
+            <div class="form-group p-2">
+              <label for="" >Status:</label>
+              <select class = "form-control" name="status">
+      
+               
+                <option name = "undernutrition" vlaue="{{values.status}}">Undernutrition</option>
+                <option name = "normal" vlaue="{{values.status}}">Normal</option>
+                <option name = "overnutrition" vlaue="{{values.status}}">Overnutrition</option>
+       
+         
+               </select>
+            </div>
+      
+             
+            <input type="submit" value="submit" class="btn btn-primary btn-rounded centered-button">
+      
+      
+          </form>
+        </div>
+    </div>
+
+</div>
+
+
+
+    
+
+</div>
+
+
+{% endblock content %}
+
+
+
