@@ -2,6 +2,9 @@ from django.shortcuts import render,redirect
 from .models import ChildDetails
 from django.contrib import messages
 from django.db.models import Count
+from django.http import JsonResponse
+from datetime import date, timedelta
+
 from django.contrib.auth.decorators import login_required
 # Create your viewsa here.
 
@@ -55,8 +58,21 @@ def Add_Child(request):
 
 
         ChildDetails.objects.create(user=request.user,firstname=firstname,lastname=lastname,gender=gender,dateOfBirth=dateofbirth, status=status)
-        messages.success(request,"The Child created succefully")
+        messages.success(request,"The Child created successfully")
         return redirect('manage_child')
     return render(request,'Add_ChildForm.html')
     
+def Child_age_range(request):
+    today = date.today()
+    age_ranges = {
+       'under_1': ChildDetails.objects.filter(dateOfBirth__gte=today - timedelta(days=365), dateOfBirth__lt=today).count(),
+       'under_2': ChildDetails.objects.filter(dateOfBirth__gte=today - timedelta(days=365 * 2), dateOfBirth__lt=today - timedelta(days=365)).count(),
+       'under_3': ChildDetails.objects.filter(dateOfBirth__gte=today - timedelta(days=365 * 3), dateOfBirth__lt=today - timedelta(days=365 * 2)).count(),
+       'under_4': ChildDetails.objects.filter(dateOfBirth__gte=today - timedelta(days=365 * 4), dateOfBirth__lt=today - timedelta(days=365 * 3)).count(),
+       'under_5': ChildDetails.objects.filter(dateOfBirth__lt=today - timedelta(days=365 * 4)).count(),
 
+    }
+
+    return JsonResponse({"age_range" : age_ranges})
+
+    
